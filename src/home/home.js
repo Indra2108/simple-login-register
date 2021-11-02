@@ -6,10 +6,10 @@ export default class Home extends Component {
     render() {
         return(
             <View style={style.container}>
-                <TouchableOpacity>
+                <TouchableOpacity style={style.tombol}>
                     <Text>LOGIN</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity style={style.tombol}>
                     <Text>REGISTER</Text>
                 </TouchableOpacity>
             </View>
