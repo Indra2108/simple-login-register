@@ -1,35 +1,18 @@
-import React, {Component} from 'react';
-import {View, Text, } from 'react-native';
-import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import React, {Component} from "react";
+// IMPORT LIBRARY
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// IMPORT SCREEN
+import Home from './src/home/home';
+import Login from './src/login/login';
+import Register from "./src/register/register";
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      nama: '',
-      email: ''
-    }
-  }
+  render() {
+    return(
+      <NavigationContainer>
 
-  getMyStringValue = async (key) => {
-    try {
-      return await AsyncStorage.getItem(key)  
-    } catch(e) {
-      console.log("Error: " + e);
-    }
-    console.log('Done.')
-  }
-
-  setStringValue = async (key, value) => {
-    try {
-      await AsyncStorage.setItem(key, value)
-    } catch(e) {
-      console.log("Error: " + e);
-    }
-    console.log("Done.");
-  }
-
-  simpan = async () => {
-    this.getMyStringValue('Kunci', this.state)
+      </NavigationContainer>
+    )
   }
 }

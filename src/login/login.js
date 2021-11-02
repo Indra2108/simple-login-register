@@ -17,9 +17,9 @@ export default class Login extends Component {
                 />
 
                 <TouchableOpacity style={style.tombol}>
-                    <Text>LOGIN</Text>
+                    <Text>SUBMIT</Text>
                 </TouchableOpacity>
-                
+
                 <TouchableOpacity style={style.tombol}>
                     <Text>REGISTER</Text>
                 </TouchableOpacity>
