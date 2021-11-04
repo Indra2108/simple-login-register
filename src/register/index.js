@@ -9,7 +9,7 @@ import Style from "./Style";
 
 // IMPORT PICTURE
 import open from '../assets/eye.png';
-import close from '../assets/hidden,png';
+import close from '../assets/hidden.png';
 
 export default class Register extends Component {
     constructor(props) {
