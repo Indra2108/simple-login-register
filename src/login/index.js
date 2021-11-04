@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
+// IMPORT STYLE
+import Style from "./Style";
+
 export default class Login extends Component {
     render() {
         return(
@@ -31,42 +34,3 @@ export default class Login extends Component {
         )
     }
 }
-
-const Style = StyleSheet.create({
-    container: {
-        flex: 1, 
-        padding: 20,
-        justifyContent: 'center',
-        
-    },
-    inputbackground:{
-        backgroundColor: 'yellow',
-        marginVertical: 10
-    },
-    textinput: {
-        padding: 10,
-    },
-    tombol: {
-        width: '100%',
-        padding: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'blue',
-        backgroundColor: 'blue', 
-        marginTop: '10%'
-    },
-    tulisantombol: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 20
-    },
-    teksregister: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: '10%'
-    },
-    register: {
-        fontWeight: 'bold'
-    },
-    
-})
