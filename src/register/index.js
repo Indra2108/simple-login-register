@@ -8,6 +8,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Style from "./Style";
 
 export default class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            hide: true
+        }
+    }
+
+
     render() {
         return(
             <View style={Style.container}>
@@ -15,6 +25,7 @@ export default class Register extends Component {
                     <TextInput 
                         placeholder='Username'
                         style={Style.textinput}
+                        onChangeText={(username) => this.setState({ username })}
                     />
                 </View>
 
@@ -22,14 +33,16 @@ export default class Register extends Component {
                     <TextInput 
                         placeholder='Password'
                         style={Style.textinput}
+                        secureTextEntry={true}
+                        onChangeText={(password) => this.setState({ password })}
                     />
                 </View>
 
-                <TouchableOpacity style={Style.tombol}>
+                <TouchableOpacity onPress={() => alert(`Username: ${this.state.username} Password: ${this.state.password}`)} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>Register</Text>
                 </TouchableOpacity>
 
-                <View  style={Style.tekslogin}>
+                <View style={Style.tekslogin}>
                     <Text>Sudah punya akun? </Text>
                     <Text onPress={() => this.props.navigation.navigate('Login')} style={Style.login}>Log In</Text>
                 </View>

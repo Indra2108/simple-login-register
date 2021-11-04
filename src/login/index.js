@@ -29,7 +29,7 @@ export default class Login extends Component {
                     <Text style={Style.tulisantombol}>Log In</Text>
                 </TouchableOpacity>
 
-                <View  style={Style.teksregister}>
+                <View style={Style.teksregister}>
                     <Text>Belum punya akun? </Text>
                     <Text onPress={() => this.props.navigation.navigate('Register')} style={Style.register}>REGISTER</Text>
                 </View>
