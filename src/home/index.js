@@ -5,10 +5,6 @@ import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import Style from "./Style";
 
 export default class Home extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <View style={Style.container}>
