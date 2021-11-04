@@ -1,6 +1,6 @@
-import android.os.Bundle;
-
 package com.latihan;
+
+import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 
