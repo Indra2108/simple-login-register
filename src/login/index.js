@@ -7,6 +7,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // IMPORT STYLE
 import Style from "./Style";
 
+// IMPORT PICTURE
+import open from '../assets/eye.png';
+import close from '../assets/hidden,png';
+
 export default class Login extends Component {
     render() {
         return(

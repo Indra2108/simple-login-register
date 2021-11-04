@@ -7,6 +7,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // IMPORT STYLE
 import Style from "./Style";
 
+// IMPORT PICTURE
+import open from '../assets/eye.png';
+import close from '../assets/hidden,png';
+
 export default class Register extends Component {
     constructor(props) {
         super(props);
@@ -33,7 +37,7 @@ export default class Register extends Component {
                     <TextInput 
                         placeholder='Password'
                         style={Style.textinput}
-                        secureTextEntry={true}
+                        secureTextEntry={this.state.hide}
                         onChangeText={(password) => this.setState({ password })}
                     />
                 </View>
