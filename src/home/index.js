@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 
+// IMPORT STYLE
+import Style from "./Style";
+
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -19,24 +22,3 @@ export default class Home extends Component {
         )
     }
 }
-
-const Style = StyleSheet.create({
-    container: {
-        flex: 1, 
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20
-    },
-    tombol: {
-        width: '100%',
-        height: '10%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 10,
-        backgroundColor: 'blue',
-        marginVertical: '10%'
-    },
-    texttombol: {
-        color: 'white'
-    }
-})
