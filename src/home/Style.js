@@ -12,7 +12,6 @@ export default StyleSheet.create({
         height: '10%',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10,
         backgroundColor: 'blue',
         marginVertical: '10%'
     },
