@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,10 +17,9 @@ export default class Register extends Component {
         this.state = {
             username: '',
             password: '',
-            hide: true
+            hide: true,
         }
     }
-
 
     render() {
         return(
@@ -40,6 +39,9 @@ export default class Register extends Component {
                         secureTextEntry={this.state.hide}
                         onChangeText={(password) => this.setState({ password })}
                     />
+                    <TouchableOpacity onPress={() => this.state.hide ? this.setState({ hide: false }) : this.setState({ hide: true })}> 
+                        <Image source={this.state.hide ? open : close} style={Style.eye}/>
+                    </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity onPress={() => alert(`Username: ${this.state.username} Password: ${this.state.password}`)} style={Style.tombol}>

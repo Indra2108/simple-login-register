@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 
+// IMPORT LIBRARY
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 export default StyleSheet.create({
     container: {
         flex: 1, 
@@ -8,10 +11,18 @@ export default StyleSheet.create({
     },
     inputbackground:{
         backgroundColor: 'yellow',
-        marginVertical: 10
+        marginVertical: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     textinput: {
         padding: 10,
+    },
+    eye:{
+        width: wp('8%'),
+        height: hp('3%'),
+        // alignItems: 'center',
     },
     tombol: {
         width: '100%',
