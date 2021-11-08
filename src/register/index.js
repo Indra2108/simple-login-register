@@ -126,9 +126,9 @@ export default class Register extends Component {
                     <Text style={Style.tulisantombol}>REGISTER</Text>
                 </TouchableOpacity>
 
-                {/* <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
-                    <Text style={Style.tulisantombol}>HAPUS</Text>
-                </TouchableOpacity> */}
+                <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
+                    <Text style={Style.tulisantombol}>BATAL</Text>
+                </TouchableOpacity>
                 
                 {/* <TouchableOpacity onPress={() => alert(`${this.state.cekData}`)} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>CEK</Text>
