@@ -94,18 +94,10 @@ export default class Register extends Component {
         })
     }
 
-    CekData = () => {
-        if(this.state.cekData == true) {
-            return <Text>{`Hallo! anda sudah mempunyai akun dengan nama ${this.state.teksUsername}, silahkan Log in`}</Text>
-        } else {
-            return null
-        }
-    }
-
     render() {
         return(
             <View style={Style.container}>
-                {this.CekData()}
+                {this.state.cekData ? <Text>{`Hallo! anda sudah mempunyai akun dengan nama ${this.state.teksUsername}, silahkan Log in`}</Text> : null}
                 <View style={Style.inputbackground}>
                     <TextInput 
                         placeholder='Username'
