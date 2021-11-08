@@ -21,6 +21,61 @@ export default class Register extends Component {
         }
     }
 
+    setItemStorage = async (key, value) => {
+        try {
+            let dataStringify = JSON.stringify(value)
+            await AsyncStorage.setItem(key, dataStringify);
+        } catch (error) {
+            console.log("Error: " + error)
+        }
+    }
+
+    getItemStorage = async (key) => {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            if( value !== null ) {
+                return value
+            } else {
+                console.log('read data error')
+            }
+        } catch (error) {
+            console.log('read data error')
+        }
+    }
+
+    removeItemStorage = async (key) => {
+        try {
+          await AsyncStorage.removeItem(key)
+        } catch(e) {
+          // remove error
+          console.log(e)
+        }
+      
+        console.log('Done.')
+    }
+
+    saveStorage = () => {
+        let usrnm = this.state.username;
+        let psswrd = this.state.password;
+        let data = {
+            username: usrnm,
+            password: psswrd
+        }
+        this.setItemStorage('REGISTER', data)
+    }
+
+    readStorage = () => {
+        this.getItemStorage('REGISTER').then(result => {
+            alert('value' + result)
+        })
+    }
+
+    removeStorage = () => {
+        this.removeItemStorage('REGISTER').then(hasil => {
+            alert('Berhasil terhapus')
+        })
+    }
+
     render() {
         return(
             <View style={Style.container}>
@@ -44,8 +99,16 @@ export default class Register extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity onPress={() => alert(`Username: ${this.state.username} Password: ${this.state.password}`)} style={Style.tombol}>
-                    <Text style={Style.tulisantombol}>Register</Text>
+                <TouchableOpacity onPress={this.readStorage} style={Style.tombol}>
+                    <Text style={Style.tulisantombol}>BACA</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={this.saveStorage} style={Style.tombol}>
+                    <Text style={Style.tulisantombol}>SIMPAN</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
+                    <Text style={Style.tulisantombol}>HAPUS</Text>
                 </TouchableOpacity>
 
                 <View style={Style.tekslogin}>

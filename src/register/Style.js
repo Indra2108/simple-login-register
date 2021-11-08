@@ -22,7 +22,6 @@ export default StyleSheet.create({
     eye:{
         width: wp('8%'),
         height: hp('3%'),
-        // alignItems: 'center',
     },
     tombol: {
         width: '100%',
