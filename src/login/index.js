@@ -39,6 +39,7 @@ export default class Login extends Component {
             let resultParsed = JSON.parse(result)
             if(this.state.username === resultParsed.username && this.state.password === resultParsed.password){
                 alert('Login Berhasil!')
+                this.props.navigation.replace('Dashboard')
             } else if(this.state.username === '' && this.state.password === '') {
                 alert('Username dan Password tidak boleh kosong!')
             } else if(this.state.password === '') {
@@ -52,7 +53,7 @@ export default class Login extends Component {
             } else {
                 alert('dahlah males')
             }
-            
+
         });
     }
 
