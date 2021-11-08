@@ -17,8 +17,20 @@ export default class Register extends Component {
         this.state = {
             username: '',
             password: '',
+            teksUsername: '',
             hide: true,
+            cekData: null
         }
+
+        AsyncStorage.getItem('REGISTER', (error, result) => {
+            if (result) {
+               let resultParsed = JSON.parse(result)
+               this.setState({
+                    cekData: true,
+                    teksUsername: resultParsed.username
+                });
+            }
+        });
     }
 
     setItemStorage = async (key, value) => {
@@ -33,7 +45,7 @@ export default class Register extends Component {
     getItemStorage = async (key) => {
         try {
             const value = await AsyncStorage.getItem(key);
-            if( value !== null ) {
+            if( value !== '' ) {
                 return value
             } else {
                 console.log('read data error')
@@ -61,7 +73,12 @@ export default class Register extends Component {
             username: usrnm,
             password: psswrd
         }
-        this.setItemStorage('REGISTER', data)
+        this.setItemStorage('REGISTER', data).then(() => {
+            alert('Berhasil Login dengan nama ' + data.username + ', silahkan Log In')
+        }).catch((error) => {
+            alert('Gagal membuat akun')
+            console.log(error)
+        }) 
     }
 
     readStorage = () => {
@@ -72,14 +89,23 @@ export default class Register extends Component {
 
     removeStorage = () => {
         this.removeItemStorage('REGISTER')
-        .then(hasil => {
+        .then(() => {
             alert('Berhasil terhapus')
         })
+    }
+
+    CekData = () => {
+        if(this.state.cekData == true) {
+            return <Text>{`Hallo! anda sudah mempunyai akun dengan nama ${this.state.teksUsername}, silahkan Log in`}</Text>
+        } else {
+            return null
+        }
     }
 
     render() {
         return(
             <View style={Style.container}>
+                {this.CekData()}
                 <View style={Style.inputbackground}>
                     <TextInput 
                         placeholder='Username'
@@ -100,17 +126,21 @@ export default class Register extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity onPress={this.readStorage} style={Style.tombol}>
+                {/* <TouchableOpacity onPress={this.readStorage} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>BACA</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
                 <TouchableOpacity onPress={this.saveStorage} style={Style.tombol}>
-                    <Text style={Style.tulisantombol}>SIMPAN</Text>
+                    <Text style={Style.tulisantombol}>REGISTER</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
+                {/* <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>HAPUS</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                
+                {/* <TouchableOpacity onPress={() => alert(`${this.state.cekData}`)} style={Style.tombol}>
+                    <Text style={Style.tulisantombol}>CEK</Text>
+                </TouchableOpacity> */}
 
                 <View style={Style.tekslogin}>
                     <Text>Sudah punya akun? </Text>
