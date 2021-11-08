@@ -8,10 +8,18 @@ export default StyleSheet.create({
     },
     inputbackground:{
         backgroundColor: 'yellow',
-        marginVertical: 10
-    },
-    textinput: {
+        marginVertical: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         padding: 10,
+    },
+    textinput:{
+
+    },
+    eye:{
+        width: 30,
+        height: 30,
     },
     tombol: {
         width: '100%',

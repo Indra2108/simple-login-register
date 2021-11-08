@@ -136,7 +136,7 @@ export default class Register extends Component {
 
                 <View style={Style.tekslogin}>
                     <Text>Sudah punya akun? </Text>
-                    <Text onPress={() => this.props.navigation.navigate('Login')} style={Style.login}>Log In</Text>
+                    <Text onPress={() => this.props.navigation.navigate('Login')} style={Style.login}>LOGIN</Text>
                 </View>
             </View>
         )
