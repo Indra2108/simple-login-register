@@ -46,9 +46,9 @@ export default class Register extends Component {
     removeItemStorage = async (key) => {
         try {
           await AsyncStorage.removeItem(key)
-        } catch(e) {
+        } catch(error) {
           // remove error
-          console.log(e)
+          console.log(error)
         }
       
         console.log('Done.')
@@ -71,7 +71,8 @@ export default class Register extends Component {
     }
 
     removeStorage = () => {
-        this.removeItemStorage('REGISTER').then(hasil => {
+        this.removeItemStorage('REGISTER')
+        .then(hasil => {
             alert('Berhasil terhapus')
         })
     }
