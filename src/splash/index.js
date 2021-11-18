@@ -1,12 +1,26 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+// IMPORT LIBRARY
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export default class Mengsplash extends Component {
+    componentDidMount() {
+        AsyncStorage.getItem('REGISTER')
+            .then(mydata => {
+                if (mydata === null) {
+                    console.log('Token Kosong!')
+                    this.props.navigation.replace('Home')
+                } else {
+                    this.props.navigation.replace('Dashboard')
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
     render() {
         return (
-            <View>
-
-            </View>
+            <Text>xxx</Text>
         )
     }
 }
