@@ -34,27 +34,26 @@ export default class Login extends Component {
     }
 
     MengcekData = () => {
-        return AsyncStorage.getItem('REGISTER', (error, result) => {
-
-            let resultParsed = JSON.parse(result)
-            if (this.state.username === resultParsed.username && this.state.password === resultParsed.password) {
-                alert('Login Berhasil!')
-                this.props.navigation.replace('Dashboard')
-            } else if (this.state.username === '' && this.state.password === '') {
-                alert('Username dan Password tidak boleh kosong!')
-            } else if (this.state.password === '') {
-                alert('Password tidak boleh kosong!')
-            } else if (this.state.username === '') {
-                alert('Username tidak boleh kosong!')
-            } else if (this.state.username !== resultParsed.username) {
-                alert('Username salah!')
-            } else if (this.state.password !== resultParsed.password) {
-                alert('Password Salah!')
-            } else {
-                alert('dahlah males')
-            }
-
-        });
+        return AsyncStorage.getItem('REGISTER')
+            .then(value => {
+                let resultParsed = JSON.parse(value)
+                if (this.state.username === resultParsed.username && this.state.password === resultParsed.password) {
+                    // alert('Login Berhasil!')
+                    return this.props.navigation.replace('Dashboard')
+                } else if (this.state.username === '' && this.state.password === '') {
+                    alert('Username dan Password tidak boleh kosong!')
+                } else if (this.state.password === '') {
+                    alert('Password tidak boleh kosong!')
+                } else if (this.state.username === '') {
+                    alert('Username tidak boleh kosong!')
+                } else if (this.state.username !== resultParsed.username) {
+                    alert('Username salah!')
+                } else if (this.state.password !== resultParsed.password) {
+                    alert('Password Salah!')
+                } else {
+                    alert('dahlah males')
+                }
+            })
     }
 
     render() {
