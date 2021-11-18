@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
 // IMPORT LIBRARY
@@ -24,8 +24,8 @@ export default class Register extends Component {
 
         AsyncStorage.getItem('REGISTER', (error, result) => {
             if (result) {
-               let resultParsed = JSON.parse(result)
-               this.setState({
+                let resultParsed = JSON.parse(result)
+                this.setState({
                     cekData: true,
                     teksUsername: resultParsed.username
                 });
@@ -45,7 +45,7 @@ export default class Register extends Component {
     getItemStorage = async (key) => {
         try {
             const value = await AsyncStorage.getItem(key);
-            if( value !== '' ) {
+            if (value !== '') {
                 return value
             } else {
                 console.log('read data error')
@@ -57,12 +57,12 @@ export default class Register extends Component {
 
     removeItemStorage = async (key) => {
         try {
-          await AsyncStorage.removeItem(key)
-        } catch(error) {
-          // remove error
-          console.log(error)
+            await AsyncStorage.removeItem(key)
+        } catch (error) {
+            // remove error
+            console.log(error)
         }
-      
+
         console.log('Done.')
     }
 
@@ -78,7 +78,7 @@ export default class Register extends Component {
         }).catch((error) => {
             alert('Gagal membuat akun')
             console.log(error)
-        }) 
+        })
     }
 
     readStorage = () => {
@@ -89,17 +89,17 @@ export default class Register extends Component {
 
     removeStorage = () => {
         this.removeItemStorage('REGISTER')
-        .then(() => {
-            alert('Berhasil terhapus')
-        })
+            .then(() => {
+                alert('Berhasil terhapus')
+            })
     }
 
     render() {
-        return(
+        return (
             <View style={Style.container}>
                 {this.state.cekData ? <Text>{`Hallo! anda sudah mempunyai akun dengan nama ${this.state.teksUsername}, silahkan Log in`}</Text> : null}
                 <View style={Style.inputbackground}>
-                    <TextInput 
+                    <TextInput
                         placeholder='Username'
                         style={Style.textinput}
                         onChangeText={(username) => this.setState({ username })}
@@ -107,14 +107,14 @@ export default class Register extends Component {
                 </View>
 
                 <View style={Style.inputbackground}>
-                    <TextInput 
+                    <TextInput
                         placeholder='Password'
                         style={Style.textinput}
                         secureTextEntry={this.state.hide}
                         onChangeText={(password) => this.setState({ password })}
                     />
-                    <TouchableOpacity onPress={() => this.state.hide ? this.setState({ hide: false }) : this.setState({ hide: true })}> 
-                        <Image source={this.state.hide ? open : close} style={Style.eye}/>
+                    <TouchableOpacity onPress={() => this.state.hide ? this.setState({ hide: false }) : this.setState({ hide: true })}>
+                        <Image source={this.state.hide ? open : close} style={Style.eye} />
                     </TouchableOpacity>
                 </View>
 
@@ -129,7 +129,7 @@ export default class Register extends Component {
                 <TouchableOpacity onPress={this.removeStorage} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>BATAL</Text>
                 </TouchableOpacity>
-                
+
                 {/* <TouchableOpacity onPress={() => alert(`${this.state.cekData}`)} style={Style.tombol}>
                     <Text style={Style.tulisantombol}>CEK</Text>
                 </TouchableOpacity> */}

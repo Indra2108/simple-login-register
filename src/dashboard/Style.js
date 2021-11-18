@@ -7,7 +7,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     tombolLogOut: {
-        backgroundColor: 'blue', 
+        backgroundColor: 'blue',
         padding: 15
     },
     teksLogOut: {

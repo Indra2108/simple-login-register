@@ -1,12 +1,12 @@
-import React, {Component} from "react";
-import {View, TouchableOpacity, Text} from 'react-native';
+import React, { Component } from "react";
+import { View, TouchableOpacity, Text } from 'react-native';
 
 // IMPORT STYLE
 import Style from "./Style";
 
 export default class Home extends Component {
     render() {
-        return(
+        return (
             <View style={Style.container}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={Style.tombol}>
                     <Text style={Style.texttombol}>LOGIN</Text>

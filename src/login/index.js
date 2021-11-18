@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
 // IMPORT LIBRARY
@@ -24,8 +24,8 @@ export default class Login extends Component {
 
         AsyncStorage.getItem('REGISTER', (error, result) => {
             if (result) {
-               let resultParsed = JSON.parse(result)
-               this.setState({
+                let resultParsed = JSON.parse(result)
+                this.setState({
                     dataRegister: true,
                     teksUsername: resultParsed.username
                 });
@@ -37,18 +37,18 @@ export default class Login extends Component {
         return AsyncStorage.getItem('REGISTER', (error, result) => {
 
             let resultParsed = JSON.parse(result)
-            if(this.state.username === resultParsed.username && this.state.password === resultParsed.password){
+            if (this.state.username === resultParsed.username && this.state.password === resultParsed.password) {
                 alert('Login Berhasil!')
                 this.props.navigation.replace('Dashboard')
-            } else if(this.state.username === '' && this.state.password === '') {
+            } else if (this.state.username === '' && this.state.password === '') {
                 alert('Username dan Password tidak boleh kosong!')
-            } else if(this.state.password === '') {
+            } else if (this.state.password === '') {
                 alert('Password tidak boleh kosong!')
-            } else if(this.state.username === '') {
+            } else if (this.state.username === '') {
                 alert('Username tidak boleh kosong!')
-            } else if(this.state.username !== resultParsed.username) {
+            } else if (this.state.username !== resultParsed.username) {
                 alert('Username salah!')
-            } else if(this.state.password !== resultParsed.password) {
+            } else if (this.state.password !== resultParsed.password) {
                 alert('Password Salah!')
             } else {
                 alert('dahlah males')
@@ -58,11 +58,11 @@ export default class Login extends Component {
     }
 
     render() {
-        return(
+        return (
             <View style={Style.container}>
                 {this.state.dataRegister ? <Text>{`Hallo ${this.state.teksUsername}! silahkan Log In`}</Text> : null}
                 <View style={Style.inputbackground}>
-                    <TextInput 
+                    <TextInput
                         placeholder='Username'
                         style={Style.textinput}
                         onChangeText={(username) => this.setState({ username })}
@@ -70,13 +70,13 @@ export default class Login extends Component {
                 </View>
 
                 <View style={Style.inputbackground}>
-                    <TextInput 
+                    <TextInput
                         placeholder='Password'
                         style={Style.textinput}
                         secureTextEntry={this.state.hide}
                         onChangeText={(password) => this.setState({ password })}
                     />
-                    <TouchableOpacity onPress={() => this.state.hide ? this.setState({ hide: false }) : this.setState({ hide: true })}> 
+                    <TouchableOpacity onPress={() => this.state.hide ? this.setState({ hide: false }) : this.setState({ hide: true })}>
                         <Image source={this.state.hide ? open : close} style={Style.eye} />
                     </TouchableOpacity>
                 </View>

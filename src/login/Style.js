@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
         padding: 20,
         justifyContent: 'center',
     },
-    inputbackground:{
+    inputbackground: {
         backgroundColor: 'yellow',
         marginVertical: 10,
         flexDirection: 'row',
@@ -14,10 +14,10 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
     },
-    textinput:{
+    textinput: {
 
     },
-    eye:{
+    eye: {
         width: 30,
         height: 30,
     },
@@ -27,7 +27,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         color: 'blue',
-        backgroundColor: 'blue', 
+        backgroundColor: 'blue',
         marginTop: '10%'
     },
     tulisantombol: {
